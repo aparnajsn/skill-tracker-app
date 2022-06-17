@@ -1,0 +1,25 @@
+# Example of docker-based Database Server.
+# Start using: docker-compose up -d
+# Stop using: docker-compose down
+version: '2.4'
+services:
+  db:
+    container_name: mysql
+    image: mysql:5.7.28
+    # image: datajoint/mysql:8.0
+    #command: mysqld
+    environment:
+      - MYSQL_ROOT_PASSWORD=simple
+      - MYSQL_USER=skill_tracker_user
+      - MYSQL_PASSWORD=Password123
+      - MYSQL_DATABASE=skill_tracker_db
+      #- MYSQL_ROOT_HOST=%
+      # - DATAJOINT_DATABASE_CONFIG_MONITOR=FALSE # Enable MySQL config monitoring, auto reload
+    ports:
+      - "3307:3307"
+     # - "3306:3306"
+    volumes:
+      ## persist data across docker-compose up/down
+      - ./data:/var/lib/mysql
+      ## modify MySQL config
+      # - ./config/my.cnf:/etc/mysql/my.cnf

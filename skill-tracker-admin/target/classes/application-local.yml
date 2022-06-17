@@ -1,0 +1,17 @@
+server:
+  port: 8091
+
+spring:
+  datasource:
+    #url: jdbc:mysql://skill-tracker-admin.cnposghmoih7.us-east-1.rds.amazonaws.com:3306/skill_tracker_db
+    url: jdbc:mysql://localhost:3306/skill_tracker_db?useSSL=false
+    username: skill_tracker_user
+    password: Password123
+kafka:
+  brokers: 127.0.0.1:9092
+
+memcached:
+  cache:
+    servers: localhost:11211
+    expirations: 3600
+    operation-timeout: 3000
